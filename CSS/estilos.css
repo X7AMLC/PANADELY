@@ -1,0 +1,316 @@
+/** Importación de fuentes Raleway */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,800;1,800&display=swap'); /* ExtraBold */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,600;1,600&display=swap'); /* SemiBold */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,300&display=swap'); /* Light */
+
+/** Reset de estilos global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/** 
+ * Estilos generales para el cuerpo de la página.
+ * Se agrega `padding-top` para evitar que el header fijo cubra el contenido. 
+ */
+body {
+    margin: 0;
+    padding-top: 120px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+
+
+/*TITULOSSSSS EXTRABOLD*/
+
+
+.Bienvenido{
+    text-align: center;
+    padding: 20px 0px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+}
+
+.pasteles_menu1{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+}
+.panesb{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    text-align: center;
+}
+
+
+/*TEXTOS SEMIBOLD*/
+
+
+
+
+/*TITULOSSSSS LIGTH*/
+
+
+
+/** 
+ * HEADER: Estilos del encabezado.
+ * Se oculta inicialmente hasta que la pantalla de carga finalice. 
+ */
+.header {
+    display: none; /** Oculto hasta que termine la pantalla de carga */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /** Sombra ligera para resaltar */
+}
+
+/** Logo dentro del header */
+.logo {
+    width: 350px;
+    height: auto;
+}
+
+/** 
+ * ESTILOS DEL BANNER 
+ */
+.Banner {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+/** Imagen dentro del banner */
+.Banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+
+.mostrar_productos{
+    padding: 2em;
+    align-items: center;
+    text-align: center;
+}
+
+.iconos-entree{
+    text-align: center;
+    padding: 20px 0;
+}
+
+.iconos-entre img{
+    width: 150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.imagen_fondo{
+    background-image: url(../banners_prueba/b_prueva.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;;
+    height: 20em;
+}
+
+
+
+
+.imagen_fondo2{
+    background-image: url(../banners_prueba/b_prueba.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    height: 20em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*//////////////////////////////////////FOOTER//////////////////////////////////////////*/
+
+.footer {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1 1 220px;
+    min-width: 200px;
+    text-align: left;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #fab600;
+}
+
+.footer-logo {
+    width: 180px;
+    height: auto;
+}
+
+.social .social-icons {
+    display: flex;
+    flex-direction: row; /* Logos en fila horizontal */
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.social a {
+    font-size: 28px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.social a:hover {
+    color: #f39c12;
+}
+
+/* 🔥 Responsive Design 🔥 */
+@media (max-width: 992px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: center;
+        text-align: center;
+    }
+    .footer-section {
+        flex: 1 1 45%;
+        margin-bottom: 20px;
+    }
+    .social .social-icons {
+        justify-content: center; /* Centra los íconos en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .logo{
+        width: 250px;
+    }
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        flex: 1 1 100%;
+        margin-bottom: 30px;
+    }
+
+    .footer-logo {
+        width: 150px;
+    }
+
+    .social .social-icons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .logo{
+        width: 150px;
+    }
+    .footer-section h4 {
+        font-size: 16px;
+    }
+
+    .footer-logo {
+        width: 120px;
+    }
+    .siguenoss{
+        text-align: center;
+    }
+    .social .social-icons {
+        padding: 10px 0px;
+        flex-direction: row; /* En móviles pequeños los íconos se apilan verticalmente */
+        align-items: center;
+        gap: 10px;
+    }
+
+    .social a {
+        font-size: 24px;
+    }
+
+    
+}

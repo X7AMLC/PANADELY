@@ -1,0 +1,99 @@
+.menu-icon {
+    position: fixed;
+    top: 15px;
+    right: 15px; /* Se mueve a la derecha */
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* 🔹 Menú lateral */
+.menu.container {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Oculto al inicio */
+    width: 250px;
+    height: 100%;
+    background: #fab600; /* Fondo amarillo */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    padding-top: 60px;
+}
+
+/* 🔹 Mostrar el menú cuando se active */
+.menu.container.open {
+    right: 0;
+}
+
+/* 🔹 Estilos de los elementos del menú */
+.items {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    list-style: none;
+    padding: 0;
+}
+
+.items li {
+    padding: 15px;
+    border-bottom: 1px solid black;
+}
+
+.items li a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+
+.items li a:hover{
+    color: #fab600;
+}
+
+/* 🔹 Estilos del ícono de búsqueda (LUPA) */
+#search-option {
+    text-align: center;
+}
+
+.search_icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* 🔹 Responsividad - Pantallas grandes */
+@media (min-width: 768px) {
+    .menu.container {
+        position: static;
+        right: 0;
+        width: auto;
+        height: auto;
+        background: none;
+        box-shadow: none;
+        padding-top: 0;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    .items {
+        display: flex;
+        gap: 20px;
+    }
+
+    .items li {
+        border-bottom: none;
+    }
+
+    #search-option {
+        order: 6; /* Mueve la lupa al final del menú */
+    }
+    
+}
+
+@media (max-width: 800px) {
+    .menu-icon img {
+        width: 25px;  /* Más pequeño en móviles */
+    }
+}
