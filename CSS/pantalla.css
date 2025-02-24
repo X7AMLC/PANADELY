@@ -1,4 +1,12 @@
 /* Estilos para la pantalla de carga */
+
+
+/* Bloquea el scroll mientras se muestra la pantalla de carga */
+body:not(.loaded) {
+    overflow: hidden;
+    height: 100vh;
+}
+
 #loader-container {
     position: fixed;
     width: 100vw;

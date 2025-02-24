@@ -1,4 +1,3 @@
-/** Referencias a los elementos de la pantalla de carga */
 const icons = [
     document.getElementById("icon-1"),
     document.getElementById("icon-2"),
@@ -6,47 +5,56 @@ const icons = [
     document.getElementById("icon-4")
 ];
 
-const loader = document.getElementById("loader-container"); /** Contenedor de la pantalla de carga */
-const header = document.querySelector(".header"); /** Referencia al header */
-const body = document.body; /** Referencia al body */
+const loader = document.getElementById("loader-container");
+const header = document.querySelector(".header");
+const body = document.body;
+const content = document.querySelector(".content") || document.body;
 
-let count = 0; /** Contador de ciclos */
-const maxCycles = 8; /** 8 cambios (2 ciclos completos para 4 imágenes) */
+let count = 0;
+const maxCycles = 8;
 
-/** 
- * Función que alterna los íconos en la pantalla de carga.
- * Después de `maxCycles`, oculta la pantalla de carga y muestra el header.
- */
 function switchIcons() {
     if (count >= maxCycles) {
-        /** Oculta la pantalla de carga */
-        loader.style.display = "none";
-
-        /** Muestra el header */
-        header.style.display = "flex";
-
-        /** Agrega una clase al body para marcar que la carga terminó */
+        if (loader) {
+            loader.style.display = "none";
+        }
+        if (content) {
+            content.style.opacity = "1";
+            content.style.visibility = "visible";
+            content.style.pointerEvents = "auto";
+        }
+        if (header) {
+            header.style.display = "flex";
+        }
         body.classList.add("loaded");
+        body.style.overflow = "auto";
+        body.style.height = "auto";
         return;
     }
 
-    /** Oculta todos los iconos */
-    icons.forEach(icon => icon.classList.remove("show"));
+    icons.forEach(icon => {
+        if (icon) icon.classList.remove("show");
+    });
 
-    /** Muestra el icono correspondiente según el ciclo */
-    icons[count % 4].classList.add("show");
+    if (icons[count % icons.length]) {
+        icons[count % icons.length].classList.add("show");
+    }
 
     count++;
-    setTimeout(switchIcons, 500); /** Alternar cada 0.5 segundos */
+    setTimeout(switchIcons, 500);
 }
 
-/** 
- * Iniciar la animación de carga cuando la página se haya cargado completamente.
- */
 window.onload = function () {
-    /** Oculta el header al inicio */
-    header.style.display = "none";
-
-    /** Inicia la secuencia de cambio de iconos */
+    if (header) {
+        header.style.display = "none";
+    }
+    if (content) {
+        content.style.opacity = "0";
+        content.style.visibility = "hidden";
+        content.style.pointerEvents = "none";
+    }
+    body.style.overflow = "hidden";
+    body.style.height = "100vh";
+    count = 0;
     setTimeout(switchIcons, 500);
 };

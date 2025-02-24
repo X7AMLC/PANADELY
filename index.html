@@ -8,7 +8,7 @@
     <!-- Enlaces a estilos CSS -->
     <link rel="stylesheet" href="CSS/estilos.css">
     <link rel="stylesheet" href="CSS/pantalla.css"> <!-- Nueva hoja de estilos para la carga -->
-    <link rel="stylesheet" href="CSS/carrusel.css">
+    <link rel="stylesheet" href="CSS/carruseles.css">
     <link rel="stylesheet" href="CSS/menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -23,36 +23,34 @@
     </div>
 
     <!-- Contenido de la página -->
-    <header class="header">
-        <div class="logo">
-            <a href="index.html">
-                <img src="IMAGES/Logotipo Principal_Mesa de trabajo 1.png" alt="Panadely" class="logo">
-            </a>
-        </div>
-
-
+    <div class="content">
+        <header class="header">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="IMAGES/Logotipo Principal_Mesa de trabajo 1.png" alt="Panadely" class="logo">
+                </a>
+            </div>
         
-        <div class="menu-icon" id="menu-toggle">
-            <img src="ICONOS/MENÚ.png" alt="Menú">
-        </div>
-    
-        <!-- 🔹 Menú de navegación -->
-        <nav class="menu container" id="menu">
-            <ul class="items">
-                <li><a href="#">Nuestra Historia</a></li>
-                <li><a href="catalogo.html">Catálogo</a></li>
-                <li><a href="#">Pedidos Especiales</a></li>
-                <li><a href="#">Pastelerías</a></li>
-                <li><a href="#">Empleos</a></li>
-                <li id="search-option">
-                    <a href="busqueda.html">
-                        <img src="ICONOS/LUPA.png" alt="Buscar" class="search_icon">
-                    </a>
-                </li>
-            </ul>
-        </nav>
+            <div class="menu-icon" id="menu-toggle">
+                <img src="ICONOS/MENÚ.png" alt="Menú">
+            </div>
+        
+            <nav class="menu container" id="menu">
+                <ul class="items">
+                    <li><a href="#">Nuestra Historia</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="#">Pedidos Especiales</a></li>
+                    <li><a href="#">Pastelerías</a></li>
+                    <li><a href="#">Empleos</a></li>
+                    <li id="search-option">
+                        <a href="busqueda.html">
+                            <img src="ICONOS/LUPA.png" alt="Buscar" class="search_icon">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-    </header>    
 
 
 
@@ -172,26 +170,29 @@
 
 
 
-    <!-- Nuevos Banners independientes con efecto -->
-    <!-- Contenedor de imágenes de fondo -->
-    <div class="imagen_fondo">
-        <h1></h1>
-        <p></p>
+<!-- Parallax 1: Imagen de fondo -->
+    <div class="parallax-wrapper">
+        <!-- Primera imagen de fondo -->
+        <section class="parallax-section imagen_fondo"></section>
+
+    <!-- Sección de iconos (contenido que pasa sobre la imagen) -->
+        <section class="content-section iconos-entre">
+            <div class="iconos-entree">
+                <img src="ICONOS/PASTEL.png" alt="PASTEL">
+                <img src="ICONOS/CROISSANT.png" alt="CROISSANT">
+                <img src="ICONOS/PAN DULCE.png" alt="PAN DULCE">
+                <img src="ICONOS/PORCION DE PASTEL.png" alt="PORCIÓN DE PASTEL">
+            </div>
+        </section>
+    <!-- Segunda imagen de fondo -->
+        <section class="parallax-section imagen_fondo2"></section>
+            <!-- (Opcional) Agrega contenido extra para lograr scroll -->
+            <section class="content-section">
+            <p style="padding: 2em; text-align: center;">Contenido adicional para generar scroll y apreciar el efecto parallax.</p>
+        </section>
     </div>
 
-<!-- Sección que activa el cambio -->
-    <section class="iconos-entre">
-        <div class="iconos-entree">
-            <img src="ICONOS/PASTEL.png" alt="PASTEL">
-            <img src="ICONOS/CROISSANT.png" alt="PASTEL">
-            <img src="ICONOS/PAN DULCE.png" alt="PASTEL">
-            <img src="ICONOS/PORCION DE PASTEL.png" alt="PASTEL">
-        </div>
-    </section>
 
-    <div class="imagen_fondo2">
-        <h1></h1>
-    </div>
 
 
 
@@ -229,7 +230,7 @@
                 </div>
             </div>
         </div>
-    </footer>a
+    </footer>
     
     
     <!-- CDN para íconos de FontAwesome -->
@@ -240,8 +241,7 @@
     <!-- Scripts de funcionalidad -->
     <script src="JS/pantalla.js"></script> <!-- Control de la pantalla de carga -->
     <script src="JS/menu.js"></script> <!-- Control del menú hamburguesa y búsqueda -->
-    <script src="JS/carrusel.js"></script>
-    <script src="JS/carrusel2.js"></script> <!-- Nuevo script para el segundo carrusel -->
+    <script src="JS/carruseles.js"></script>
     <script src="JS/scroll-effect.js"></script>
 </body>
 </html>

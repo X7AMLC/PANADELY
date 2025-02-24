@@ -21,8 +21,6 @@ body {
     overflow: auto;
 }
 
-
-
 /*TITULOSSSSS EXTRABOLD*/
 
 
@@ -37,11 +35,14 @@ body {
 .pasteles_menu1{
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
+    padding: 60px 0;
 }
+
 .panesb{
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
     text-align: center;
+    padding: 60px 0;
 }
 
 
@@ -111,55 +112,95 @@ body {
     padding: 20px 0;
 }
 
-.iconos-entre img{
-    width: 150px;
+.iconos-entree img{
+    width: 250px;
+}
+
+@media (max-width: 980px) {
+    .iconos-entre img{
+        width: 150px;
+    }
+    
+}
+
+
+@media (max-width: 780px) {
+    .iconos-entre img{
+        width: 90px;
+    }
+    
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.imagen_fondo{
+.parallax-wrapper {
+    perspective: 1px;
+    height: 100vh; /* La ventana completa; si la página no tiene mucho contenido, se recomienda agregar más secciones */
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  /* Sección parallax para los fondos */
+  .parallax-section {
+    position: relative;
+    height: 20em; /* Altura base para escritorio; se ajusta en media queries */
+    transform: translateZ(0);
+  }
+  
+  /* Usamos el pseudo-elemento ::before para colocar la imagen de fondo y moverla en scroll */
+  .parallax-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transform: translateZ(-1px) scale(2);
+  }
+  
+  /* Asignación de las imágenes de fondo */
+  .imagen_fondo::before {
     background-image: url(../banners_prueba/b_prueva.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;;
-    height: 20em;
-}
-
-
-
-
-.imagen_fondo2{
+  }
+  
+  .imagen_fondo2::before {
     background-image: url(../banners_prueba/b_prueba.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-    height: 20em;
-}
-
-
+  }
+  
+  /* Sección de contenido (iconos) que se muestra sobre el fondo */
+  .content-section {
+    position: relative;
+    background-color: #fff;  /* Fondo blanco para que los iconos destaquen; ajusta o quita según tu diseño */
+    padding: 2em 0;
+    text-align: center;
+  }
+  
+  /* Responsive: Ajustes para distintos dispositivos */
+  
+  /* Pantallas medianas (tablets y laptops pequeñas) */
+  @media (max-width: 992px) {
+    .parallax-section {
+      height: 18em;
+    }
+  }
+  
+  /* Tablets en orientación vertical */
+  @media (max-width: 768px) {
+    .parallax-section {
+      height: 16em;
+    }
+  }
+  
+  /* Teléfonos pequeños */
+  @media (max-width: 576px) {
+    .parallax-section {
+      height: 14em;
+    }
+  }
 
 
 
