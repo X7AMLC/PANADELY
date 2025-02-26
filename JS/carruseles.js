@@ -1,22 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const carruseles = [
-        { container: ".carousel", products: ".carousel .product" },
-        { container: ".carousel-2", products: ".carousel-2 .product" }
-    ];
+    const carousels = document.querySelectorAll(".carousel, .carousel-2");
 
-    carruseles.forEach(({ container, products }) => {
-        const carousel = document.querySelector(container);
-        const productList = Array.from(document.querySelectorAll(products));
+    carousels.forEach((carousel) => {
+        const products = Array.from(carousel.querySelectorAll(".product"));
         let selectedProduct = null;
 
-        if (!carousel || productList.length === 0) return;
-
-        productList.forEach((product) => {
+        // Agregar corazones y funcionalidad
+        products.forEach((product) => {
             const heart = document.createElement("div");
             heart.classList.add("heart-icon");
-            heart.innerHTML = "\u2665"; 
+            heart.innerHTML = "\u2665"; // Corazón
             product.appendChild(heart);
 
+            // Evento al hacer clic en un producto (hace zoom extra y pausa el carrusel)
             product.addEventListener("click", function () {
                 if (selectedProduct === product) {
                     resetZoom(product);
@@ -32,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
 
+            // Evento al hacer clic en el corazón (reanuda carrusel y cambia color)
             heart.addEventListener("click", function (e) {
                 e.stopPropagation();
                 heart.classList.toggle("liked");
@@ -41,18 +38,22 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
+        // Función para pausar el carrusel
         const pauseCarousel = (carousel) => {
             carousel.style.animationPlayState = "paused";
         };
 
+        // Función para reanudar el carrusel
         const resumeCarousel = (carousel) => {
             carousel.style.animationPlayState = "running";
         };
 
+        // Función para quitar el zoom
         const resetZoom = (product) => {
             product.classList.remove("zoomed");
         };
 
+        // Iniciar carrusel con animación activa
         resumeCarousel(carousel);
     });
 });
