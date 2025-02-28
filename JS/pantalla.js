@@ -11,7 +11,7 @@ const body = document.body;
 const content = document.querySelector(".content") || document.body;
 
 let count = 0;
-const maxCycles = 8;
+const maxCycles = 16;
 
 function switchIcons() {
     if (count >= maxCycles) {
@@ -41,7 +41,7 @@ function switchIcons() {
     }
 
     count++;
-    setTimeout(switchIcons, 500);
+    setTimeout(switchIcons, 270);
 }
 
 window.onload = function () {

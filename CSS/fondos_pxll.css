@@ -1,3 +1,17 @@
 .imagen_fondo1{
-    background-image: ;
+    background-image: url(/banners_prueba/b_prueba.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 20em;
+
+}
+
+.imagen_fondo2{
+    background-image: url(/banners_prueba/b_prueva.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 20em;
+
 }

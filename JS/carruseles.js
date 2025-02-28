@@ -1,59 +1,55 @@
 document.addEventListener("DOMContentLoaded", function () {
     const carousels = document.querySelectorAll(".carousel, .carousel-2");
 
-    carousels.forEach((carousel) => {
-        const products = Array.from(carousel.querySelectorAll(".product"));
-        let selectedProduct = null;
+    carousels.forEach(carousel => {
+        let isPaused = false;
+        let scrollSpeed = 1; // Ajustado para mayor fluidez
+        let step = 0;
+        let firstItemWidth = carousel.children[0].offsetWidth + 60; // Considerando el gap
 
-        // Agregar corazones y funcionalidad
-        products.forEach((product) => {
-            const heart = document.createElement("div");
-            heart.classList.add("heart-icon");
-            heart.innerHTML = "\u2665"; // Corazón
+        function moveCarousel() {
+            if (!isPaused) {
+                step -= scrollSpeed;
+                carousel.style.transform = `translateX(${step}px)`;
+
+                // Cuando el primer elemento está por salir, lo movemos al final antes de que se vea el espacio vacío
+                if (Math.abs(step) >= firstItemWidth) {
+                    carousel.appendChild(carousel.children[0]); // Mueve el primer elemento al final
+                    carousel.style.transform = `translateX(0px)`;
+                    step = 0;
+                }
+            }
+            requestAnimationFrame(moveCarousel);
+        }
+        moveCarousel();
+
+        // Pausa y reanuda el carrusel al hacer clic en un producto
+        carousel.querySelectorAll(".product").forEach(product => {
+            const heart = document.createElement("i");
+            heart.classList.add("fa", "fa-heart", "heart");
             product.appendChild(heart);
 
-            // Evento al hacer clic en un producto (hace zoom extra y pausa el carrusel)
-            product.addEventListener("click", function () {
-                if (selectedProduct === product) {
-                    resetZoom(product);
-                    resumeCarousel(carousel);
-                    selectedProduct = null;
-                } else {
-                    if (selectedProduct) {
-                        resetZoom(selectedProduct);
-                    }
-                    pauseCarousel(carousel);
-                    product.classList.add("zoomed");
-                    selectedProduct = product;
-                }
+            heart.addEventListener("click", (event) => {
+                event.stopPropagation();
+                heart.classList.toggle("liked");
+                resetCarousel();
             });
 
-            // Evento al hacer clic en el corazón (reanuda carrusel y cambia color)
-            heart.addEventListener("click", function (e) {
-                e.stopPropagation();
-                heart.classList.toggle("liked");
-                resetZoom(product);
-                resumeCarousel(carousel);
-                selectedProduct = null;
+            product.addEventListener("click", () => {
+                if (product.classList.contains("selected")) {
+                    product.classList.remove("selected");
+                    isPaused = false;
+                } else {
+                    isPaused = true;
+                    product.classList.add("selected");
+                }
             });
         });
 
-        // Función para pausar el carrusel
-        const pauseCarousel = (carousel) => {
-            carousel.style.animationPlayState = "paused";
-        };
-
-        // Función para reanudar el carrusel
-        const resumeCarousel = (carousel) => {
-            carousel.style.animationPlayState = "running";
-        };
-
-        // Función para quitar el zoom
-        const resetZoom = (product) => {
-            product.classList.remove("zoomed");
-        };
-
-        // Iniciar carrusel con animación activa
-        resumeCarousel(carousel);
+        // Reiniciar el carrusel cuando sea necesario
+        function resetCarousel() {
+            isPaused = false;
+            carousel.querySelectorAll(".product.selected").forEach(el => el.classList.remove("selected"));
+        }
     });
 });

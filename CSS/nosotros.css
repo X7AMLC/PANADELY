@@ -1,0 +1,149 @@
+/* Aplicar fuentes según los requerimientos */
+h1, h2, h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800; /* Títulos */
+    color: #000;
+}
+
+h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600; /* Subtítulos */
+    color: #000;
+}
+
+p {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200; /* Texto */
+    color: #000;
+}
+
+/* Sección "¿Quiénes somos?" */
+.nosotros {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.nosotros h1 {
+    font-size: 50px;
+    font-weight: 800;
+    font-family: 'Raleway', sans-serif;
+    color: #000;
+    text-align: left;
+    width: 40%;
+    margin-right: 50px; /* Aumenta este valor para más separación */
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 20px;
+}
+
+/* Estilos para la parte de misión y visión */
+.mision-vision {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.mision-vision .imagen img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+.mision-vision .texto {
+    width: 50%;
+}
+
+.mision-vision h2 {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    color: #000;
+}
+
+.mision-vision p {
+    font-size: 18px;
+    font-weight: 200;
+    font-family: 'Raleway', sans-serif;
+    color: #000;
+    line-height: 1.5;
+}
+
+/* Sección de Valores */
+.valores {
+    text-align: center;
+    padding: 40px;
+    background: white;
+}
+
+.grid-valores {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.valor {
+    background: #fff;
+    padding: 20px;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.valor:hover {
+    transform: scale(1.05);
+}
+
+/* Íconos sobre los valores */
+.valor i {
+    font-size: 30px;
+    color: #004080;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Sección de Historia */
+.historia {
+    text-align: center;
+    padding: 40px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.historia h2 {
+    color: #000;
+}
+
+.historia p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #000;
+}
+
+/* Imagen destacada */
+.imagen-destacada {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.imagen-destacada img {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.imagen-destacada img:hover {
+    transform: scale(1.1);
+}

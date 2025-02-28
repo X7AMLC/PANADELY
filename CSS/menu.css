@@ -1,13 +1,16 @@
+
+.header{
+    justify-content: space-between;
+}
+
 .menu-icon {
-    position: fixed;
     top: 15px;
-    right: 15px; /* Se mueve a la derecha */
     cursor: pointer;
     z-index: 1001;
 }
 
 /* 🔹 Menú lateral */
-.menu.container {
+.menu-container {
     position: fixed;
     top: 0;
     right: -250px; /* Oculto al inicio */
@@ -20,7 +23,7 @@
 }
 
 /* 🔹 Mostrar el menú cuando se active */
-.menu.container.open {
+.menu-container.open {
     right: 0;
 }
 
@@ -62,8 +65,10 @@
 }
 
 /* 🔹 Responsividad - Pantallas grandes */
-@media (min-width: 768px) {
-    .menu.container {
+@media (min-width: 800px) {
+
+    
+    .menu-container {
         position: static;
         right: 0;
         width: auto;
@@ -80,6 +85,8 @@
     .items {
         display: flex;
         gap: 20px;
+        align-content: center;
+        align-items: center;
     }
 
     .items li {

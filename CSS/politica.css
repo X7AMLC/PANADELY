@@ -1,0 +1,42 @@
+/* Sección Política de Privacidad */
+.politica-privacidad {
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 20px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.politica-privacidad h1 {
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+    color: #000;
+    margin-bottom: 30px;
+}
+
+.politica-privacidad h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    margin-top: 30px;
+}
+
+.politica-privacidad p {
+    font-size: 18px;
+    font-weight: 200;
+    color: #000;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.politica-privacidad ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.politica-privacidad ul li {
+    font-size: 18px;
+    font-weight: 200;
+    color: #000;
+    line-height: 1.5;
+}

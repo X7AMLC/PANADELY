@@ -1,0 +1,30 @@
+/* Sección Términos y Condiciones */
+.terminos-condiciones {
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 20px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.terminos-condiciones h1 {
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+    color: #000;
+    margin-bottom: 30px;
+}
+
+.terminos-condiciones h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    margin-top: 30px;
+}
+
+.terminos-condiciones p {
+    font-size: 18px;
+    font-weight: 200;
+    color: #000;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}

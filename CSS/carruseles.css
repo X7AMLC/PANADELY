@@ -1,118 +1,86 @@
+
 /* Contenedor del carrusel */
-.carousel-container,
-.carousel-container-2 {
+.carousel-container, .carousel-container-2 {
     width: 100%;
     overflow: hidden;
     position: relative;
-    background-color: #fff;
+    display: flex;
+    justify-content: center;
     padding: 20px 0;
 }
 
-/* El carrusel se desplaza horizontalmente */
+/* Carrusel con desplazamiento infinito */
 .carousel, .carousel-2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300px;
     display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-    white-space: nowrap;
-    animation: scroll 20s linear infinite;
-    overflow-x: auto; /* Permitir scroll solo en el carrusel */
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    z-index: 1;
+    gap: 50px; /* Espaciado entre productos */
+    width: max-content; /* Expansión automática */
+    will-change: transform;
 }
 
-.carousel::-webkit-scrollbar, .carousel-2::-webkit-scrollbar {
-    display: none;
-}
-
-/* Estilos de cada producto */
+/* Estilo de los productos */
 .product {
-    flex: 0 0 auto;
-    width: 450px;
-    height: 450px;
-    background: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    text-align: center;
-    padding: 10px;
-    overflow: visible;
     position: relative;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    z-index: 10;
-}
-
-/* Evitar que el zoom se corte */
-.carousel-container, .carousel-container-2 {
-    overflow: visible;
+    width: 320px; /* Permite hacerlos más grandes */
+    height: 420px;
+    background: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
 }
 
 /* Imagen dentro del producto */
 .product img {
     width: 100%;
     height: 80%;
-    object-fit: cover;
+    border-radius: 12px;
 }
 
-/* Zoom al pasar el cursor */
+/* Nombre del producto debajo de la imagen */
+.product p {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Efecto de zoom al pasar el cursor */
 .product:hover {
     transform: scale(1.1);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-    z-index: 100;
+    z-index: 2;
 }
 
-/* Zoom extra al hacer clic */
-.product.zoomed {
-    transform: scale(1.3);
-    z-index: 150;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.3);
-}
-
-/* Icono de corazón */
-.heart-icon {
+/* Ícono de corazón */
+.heart {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 24px;
     color: gray;
     cursor: pointer;
-    transition: color 0.3s ease-in-out;
-    z-index: 200;
+    transition: color 0.3s;
 }
 
-.heart-icon.liked {
+/* Corazón rojo cuando se da like */
+.heart.liked {
     color: red;
 }
 
-/* Animación infinita en el carrusel */
-@keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%);
-    }
+/* Efecto de zoom extra al hacer clic */
+.product.selected {
+    transform: scale(1.3);
+    z-index: 3;
 }
 
-/* Pausar la animación cuando el usuario pone el cursor */
-.carousel-container:hover .carousel,
-.carousel-container-2:hover .carousel-2 {
-    animation-play-state: paused;
-}
-
-/* Responsividad */
-@media (max-width: 800px) {
-    .product {
-        width: 300px;
-        height: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    .product {
-        width: 200px;
-        height: 200px;
-    }
+/* Evitar cortes al hacer zoom */
+.carousel-container, .carousel-container-2 {
+    overflow: visible;
 }
